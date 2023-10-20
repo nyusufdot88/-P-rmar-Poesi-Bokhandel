@@ -1,0 +1,20 @@
+"Pärmar & Poesi"
+
+Färger:
+https://coolors.co/fce9e3-f2a3a8-f30044-2e000b-ffffff
+
+$color1: #fcebe4;
+$color2: #f1a2a7;
+$color3: #f30044;
+$color4: #2f000b;
+$color5: #ffffff
+
+
+För att köra sass live:
+sass --watch .\sass\style.scss .\src\css\style.css
+
+Tailwind är inkluderad i <head> (<script src="https://cdn.tailwindcss.com"></script>)
+
+Tailwind CSS Cheat Sheet: https://tailwindcomponents.com/cheatsheet/
+
+Hittade felet med animationen - hidden är en tailwind-class, som gör display: none.

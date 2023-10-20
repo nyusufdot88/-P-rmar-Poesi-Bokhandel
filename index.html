@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bokhandeln</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./src/js/script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/acd269acde.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <!-- LEFT-CONTAINER -->
+      <div class="left-container">
+        <!-- MENY-KNAPP -->
+        <div class="menu-button" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <!-- LOGO -->
+        <div class="logo-container">
+          <img src="./src/img/logo-perm-poesi.png" alt="Pärmar och Poesi" />
+        </div>
+      </div>
+      <!-- MIDDLE-CONTAINER -->
+      <div class="middle-container">
+        <div class="middle-search-bar">
+          <input
+            type="text"
+            id="search-input"
+            class="search-input-middle"
+            placeholder="Sök..."
+          />
+          <img src="./src/img/search.png" alt="search-icon" />
+        </div>
+      </div>
+      <!-- RIGHT-CONTAINER -->
+      <div class="right-container">
+        <!-- SEARCH-BAR- -->
+        <div class="search-container transparant-search-container">
+          <input
+            type="text"
+            id="search-input"
+            class="search-input hidden-search-input"
+            placeholder="Sök..."
+          />
+          <a
+            class="search-icon"
+            href="#search"
+            id="searchIcon"
+            onclick="toggleSearchBar()"
+          >
+            <img src="./src/img/search.png" alt="search" />
+          </a>
+        </div>
+        <a class="header-icon" href="#item-basket">
+          <img src="./src/img/shopping-bag.png" alt="shopping-bag" />
+        </a>
+        <a class="header-icon" href="#liked">
+          <img src="./src/img/heart.png" alt="likes" />
+        </a>
+        <a class="header-icon" href="#login">
+          <img src="./src/img/user-interface.png" alt="user-login" />
+        </a>
+      </div>
+      <!--MENYN -->
+      <div class="hidden-menu menu-container">
+        <nav class="menu-container__nav-menu">
+          <ul>
+            <!-- BÖCKER -->
+            <li>
+              <a href="#" data-submenu="bocker" onclick="toggleSubMenu(this)"
+                >Böcker</a
+              >
+              <div class="hidden-sub sub-navigation" id="bocker">
+                <ul>
+                  <li><a href="#"> Populärt </a></li>
+                  <li><a href="#"> Ämnen A-Ö </a></li>
+                  <li><a href="#"> Poesi- och skönlitteratur</a></li>
+                  <li><a href="#"> Erbjudanden </a></li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- SKRIVMATERIAL -->
+            <li>
+              <a
+                href="#"
+                data-submenu="skrivmaterial"
+                onclick="toggleSubMenu(this)"
+                >Skrivmaterial</a
+              >
+              <div class="hidden-sub sub-navigation" id="skrivmaterial">
+                <ul>
+                  <li><a href="#"> Pennor </a></li>
+                  <li><a href="#"> Anteckningsböcker </a></li>
+                  <li><a href="#"> Skrivmaskiner </a></li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- PÄRMAR -->
+            <li>
+              <a href="#" data-submenu="parmar" onclick="toggleSubMenu(this)"
+                >Pärmar</a
+              >
+              <div class="hidden-sub sub-navigation" id="parmar">
+                <ul>
+                  <li><a href="#"> Ringpärmar </a></li>
+                  <li><a href="#"> Gaffelpärmar </a></li>
+                  <li><a href="#"> Mappar </a></li>
+                  <li><a href="#"> Arkiv och förvaring </a></li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- LJUDBÖCKER -->
+            <li>
+              <a
+                href="#"
+                data-submenu="ljudbocker"
+                onclick="toggleSubMenu(this)"
+                >Ljudböcker</a
+              >
+              <div class="hidden-sub sub-navigation" id="ljudbocker">
+                <ul>
+                  <li><a href="#"> Populärt </a></li>
+                  <li><a href="#"> Ämnen A - Ö </a></li>
+                  <li><a href="#"> För barnen </a></li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- KALENDRAR -->
+            <li>
+              <a href="#" data-submenu="kalendrar" onclick="toggleSubMenu(this)"
+                >Kalendrar</a
+              >
+              <div class="hidden-sub sub-navigation" id="kalendrar">
+                <ul>
+                  <li><a href="#"> Kalendrar & Almanackor </a></li>
+                  <li><a href="#"> Adventskalender </a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- MAIN-CONTENT -->
+    <main>
+      <!-- OVERLAY-MENY -->
+      <div id="overlay" class="overlay visible"></div>
+
+      <section class="recommendations">
+        <h3>Rekommendationer</h3>
+
+        <div class="book-container">
+          <button
+            class="scroll-button-left"
+            id="scroll-left"
+            onclick="leftScroll()"
+          >
+            <img src="./src/img/left-arrow.png" alt="Menu - Left Arrow" />
+          </button>
+
+          <div class="book-inner-container">
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/aja-baja-alfons-aberg.jpg"
+                alt="Bok - Aja baja alfons"
+              />
+              <h4>Aja baja, Alfons Åberg</h4>
+              <h2>Gunilla Bergström</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/brandkarsmysteriet.jpg"
+                alt="Bok - Brandmysteriet"
+              />
+              <h4>Brandbysteriet</h4>
+              <h2>Gunilla Bergström</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/handbok-for-superhjaltar-ensam.jpg"
+                alt="Bok - Brandmysteriet"
+              />
+              <h4>Handbok för Superhjältar - Ensam</h4>
+              <h2>Elias & Agnes Vämhund</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/handbok-for-superhjaltar-roda-masken.jpg"
+                alt="Bok - Handbok för superhjältar - Röda masken"
+              />
+              <h4>Handbok för superhjältar - Röda masken</h4>
+              <h2>Elias & Agnes Vämlund</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/hundmannen.jpg"
+                alt="Bok - Hundmannen"
+              />
+              <h4>Hundmannen</h4>
+              <h2>Dav Pilkey</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+
+            <article class="book-sale">
+              <img
+                src="./src/img/books/barn/musse-helium-aventyret-i-lindrizia.jpg"
+                alt="Bok - Musse"
+              />
+              <h4>Musse Helium</h4>
+              <h2>Camilla Brinck</h2>
+              <p>120 kr</p>
+              <button>Köp</button>
+            </article>
+          </div>
+
+          <button
+            class="scroll-button-right"
+            id="scroll-right"
+            onclick="rightScroll()"
+          >
+            <img src="./src/img/right-arrow.png" alt="Menu - Right Arrow" />
+          </button>
+        </div>
+      </section>
+
+      <!-- TAILWIND CONTENT -->
+
+      <div class="tailwind-container flex justify-around flex-wrap">
+        <section
+          class="max-h-md max-w-md bg-red-100 overflow-hidden flex justify-center flex-col items-center rounded border border-red-900 mb-3"
+        >
+          <h1 class="text-3xl flex justify-center">Evenemang</h1>
+          <img
+            class="h-4/5 w-4/5 rounded border border-red-900"
+            src="./src/img/paket/3f1-1.jpg"
+            alt="Evenemang - 3 böcker för 1"
+          />
+          <p class="p-2 px-6">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
+            facere molestias praesentium. Earum amet similique quasi deserunt.
+            Consectetur voluptatem iste magnam dolorum architecto! Rerum
+            molestiae dolor id repellendus natus sunt, beatae consectetur non
+            reprehenderit mollitia totam ipsa sapiente tempora culpa? Quisquam
+            ducimus praesentium corrupti sed modi quam architecto similique.
+          </p>
+          <div class="w-full flex justify-between">
+            <button
+              class="h-12 w-full px-6 transition-colors duration-150 bg-red-200 rounded-lg focus:shadow-outline hover:bg-red-300 m-2.5 ml-5 border border-red-900"
+            >
+              Visa mer
+            </button>
+            <div
+              class="w-fit h-fit mr-20 cursor-pointer"
+              onclick="toggleHeart()"
+            >
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top"
+                src="./src/img/heart.png"
+                alt="Icon - Like"
+              />
+
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top hidden"
+                src="./src/img/heartfilled.png"
+                id="like-heart"
+                alt="Icon - Like"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="max-h-md max-w-md bg-red-100 overflow-hidden flex justify-center flex-col items-center rounded border border-red-900 mb-3"
+        >
+          <h1 class="text-3xl flex justify-center">Erbjudanden</h1>
+          <img
+            class="h-4/5 w-4/5 rounded border border-red-900"
+            src="./src/img/paket/3f1-2.jpg"
+            alt="Evenemang - 3 böcker för 1"
+          />
+          <p class="p-2 px-6">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
+            facere molestias praesentium. Earum amet similique quasi deserunt.
+            Consectetur voluptatem iste magnam dolorum architecto! Rerum
+            molestiae dolor id repellendus natus sunt, beatae consectetur non
+            reprehenderit mollitia totam ipsa sapiente tempora culpa? Quisquam
+            ducimus praesentium corrupti sed modi quam architecto similique.
+          </p>
+          <div class="w-full flex justify-between">
+            <button
+              class="h-12 w-full px-6 transition-colors duration-150 bg-red-200 rounded-lg focus:shadow-outline hover:bg-red-300 m-2.5 ml-5 border border-red-900"
+            >
+              Visa mer
+            </button>
+            <div
+              class="w-fit h-fit mr-20 cursor-pointer"
+              onclick="toggleHeart2()"
+            >
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top"
+                src="./src/img/heart.png"
+                alt="Icon - Like"
+              />
+
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top hidden"
+                src="./src/img/heartfilled.png"
+                id="like-heart-2"
+                alt="Icon - Like"
+              />
+            </div>
+          </div>
+        </section>
+
+        <div class="separator-2">
+          <img
+            src="./src/img/separator/separator-2.png"
+            alt="Separator - books"
+          />
+        </div>
+        <div class="separator-wide-2">
+          <img
+            src="./src/img/separator/separator-wide-2.png"
+            alt="Separator - books wider"
+          />
+        </div>
+
+        <section
+          class="max-h-md max-w-md bg-red-100 overflow-hidden flex justify-center flex-col items-center rounded border border-red-900 mb-3"
+        >
+          <h1 class="text-3xl flex justify-center">För Hälsan</h1>
+          <img
+            class="h-4/5 w-4/5 rounded border border-red-900"
+            src="./src/img/paket/3f1-3.jpg"
+            alt="Böcker för hälsan"
+          />
+          <p class="p-2 px-6">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
+            facere molestias praesentium. Earum amet similique quasi deserunt.
+            Consectetur voluptatem iste magnam dolorum architecto! Rerum
+            molestiae dolor id repellendus natus sunt, beatae consectetur non
+            reprehenderit mollitia totam ipsa sapiente tempora culpa? Quisquam
+            ducimus praesentium corrupti sed modi quam architecto similique.
+          </p>
+          <div class="w-full flex justify-between">
+            <button
+              class="h-12 w-full px-6 transition-colors duration-150 bg-red-200 rounded-lg focus:shadow-outline hover:bg-red-300 m-2.5 ml-5 border border-red-900"
+            >
+              Visa mer
+            </button>
+            <div
+              class="w-fit h-fit mr-20 cursor-pointer"
+              onclick="toggleHeart3()"
+            >
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top"
+                src="./src/img/heart.png"
+                alt="Icon - Like"
+              />
+
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top hidden"
+                src="./src/img/heartfilled.png"
+                id="like-heart-3"
+                alt="Icon - Like"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="max-h-md max-w-md bg-red-100 overflow-hidden flex justify-center flex-col items-center rounded border border-red-900 mb-3"
+        >
+          <h1 class="text-3xl flex justify-center">Till Fikat</h1>
+          <img
+            class="h-4/5 w-4/5 rounded border border-red-900"
+            src="./src/img/paket/3f1-4.jpg"
+            alt="Böcker till fikat"
+          />
+          <p class="p-2 px-6">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
+            facere molestias praesentium. Earum amet similique quasi deserunt.
+            Consectetur voluptatem iste magnam dolorum architecto! Rerum
+            molestiae dolor id repellendus natus sunt, beatae consectetur non
+            reprehenderit mollitia totam ipsa sapiente tempora culpa? Quisquam
+            ducimus praesentium corrupti sed modi quam architecto similique.
+          </p>
+          <div class="w-full flex justify-between">
+            <button
+              class="h-12 w-full px-6 transition-colors duration-150 bg-red-200 rounded-lg focus:shadow-outline hover:bg-red-300 m-2.5 ml-5 border border-red-900"
+            >
+              Visa mer
+            </button>
+            <div
+              class="w-fit h-fit mr-20 cursor-pointer"
+              onclick="toggleHeart4()"
+            >
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top"
+                src="./src/img/heart.png"
+                alt="Icon - Like"
+              />
+
+              <img
+                class="h-12 w-12 m-2.5 mr-10 absolute object-left-top hidden"
+                src="./src/img/heartfilled.png"
+                id="like-heart-4"
+                alt="Icon - Like"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <img
+        src="./src/img/separator/separator-1.png"
+        class="separator"
+        alt="Separator - books"
+      />
+      <div class="separator-wide-1">
+        <img
+          src="./src/img/separator/separator-wide-1.png"
+          alt="Separator - books wider"
+        />
+      </div>
+      <div class="flex justify-around flex-wrap">
+        <!-- ADDED TAILWIND TO CONTAINER -->
+
+        <!-- mt-[-30%] ml-[10%] -->
+        <div
+          class="container mx-auto max-w-md bg-pink-100 p-4 flex flex-col border border-black"
+        >
+          <section>
+            <h1
+              class="text-red-950 text-2xl mb-8 mt-0 font-bold mb-2 text-center font-mono"
+            >
+              Framtida böcker
+            </h1>
+            <img
+              src="./src/img/books/barn/woodwalkers-box-del-1-3.jpg"
+              alt="woodwalkers"
+              class="mx-auto mb-4"
+            />
+            <p class="text-gray-800 mb-8">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
+              facere molestias praesentium. Earum amet similique quasi deserunt.
+              Consectetur voluptatem iste magnam dolorum architecto! Rerum
+              molestiae dolor id repellendus natus sunt,beatae consectetur non
+              reprehenderit mollitia totam ipsa sapiente tempora culpa? Quisquam
+              ducimus praesentium corrupti sed modi quam architecto similique.
+            </p>
+            <div class="flex items-center">
+              <button
+                class="border border-black bg-red-400 text-black px-20 py-2 rounded hover:bg-white mb-4 mx-auto ml-20"
+              >
+                Läs mer
+              </button>
+              <a href="#" class="hover:underline ml-4">
+                <img
+                  src="./src/img/heart.png"
+                  alt="heart"
+                  class="max-w-xs w-12 h-auto"
+                />
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <!-- mt-[-35%] mr-[10%] -->
+        <div
+          class="container mx-auto max-w-md bg-pink-100 p-4 flex flex-col border border-black"
+        >
+          <section>
+            <h1
+              class="text-red-950 text-2xl mb-8 mt-0 font-bold mb-2 text-center font-mono"
+            >
+              Framtida böcker
+            </h1>
+            <img
+              src="./src/img/books/barn/vera-och-ville-pa-forskola.jpg"
+              alt="forskola"
+              class="mx-auto mb-4"
+            />
+            <p class="text-gray-800 mb-8">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
+              facere molestias praesentium. Earum amet similique quasi deserunt.
+              Consectetur voluptatem iste magnam dolorum architecto! Rerum
+              molestiae dolor id repellendus natus sunt, beatae consectetur non
+              reprehenderit mollitia totam ipsa sapiente tempora culpa? Quisquam
+              ducimus praesentium corrupti sed modi quam architecto similique.
+            </p>
+            <div class="flex items-center">
+              <button
+                class="border border-black bg-red-400 text-black px-20 py-2 rounded hover:bg-white mb-2 mx-auto ml-20"
+              >
+                Läs mer
+              </button>
+              <a href="#" class="hover:underline ml-11">
+                <img
+                  src="./src/img/heart.png"
+                  alt="heart"
+                  class="max-w-xs w-12 h-auto"
+                />
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-content__navigation">
+          <div class="rad-ett">
+            <p><a href="#" class="link-hem">Hem</a></p>
+            <p><a href="#" class="link-evenemang">Evenemang</a></p>
+            <p><a href="#" class="link-bocker">Böcker</a></p>
+            <p><a href="#" class="link-nyheter">Nyheter</a></p>
+          </div>
+
+          <div class="rad-tva">
+            <p><a href="#" class="link-kontakt">Kontakt</a></p>
+            <p><a href="#" class="link-media">Media</a></p>
+            <p><a href="#" class="link-oss">Om oss</a></p>
+            <p><a href="#" class="link-faq">FAQ</a></p>
+          </div>
+
+          <div class="rad-tre">
+            <p><a href="#" class="link-kontaktaoss">Kontakta oss</a></p>
+            <p>
+              <a href="#" class="link-email">Email: info@bibiltiotek.com</a>
+            </p>
+            <p><a href="#" class="link-telefon">Telefon: 123123</a></p>
+            <p>
+              <a href="#" class="link-adress"
+                >Adress: Stockholm Sverige 123123</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="ikoner">
+          <a href="https://twitter.com" class="twitter">
+            <i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://instagram.com" class="instagram">
+            <i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://facebook.com" class="facebook">
+            <i class="fab fa-facebook"></i
+          ></a>
+          <span class="ikontext">© 2023 Bibliotek. All Rights Reserved.</span>
+        </div>
+
+        <div class="footer-textbox">
+          <p>Signera</p>
+          <div class="footer-textbox-row">
+            <input type="text" placeholder="e-post adress" />
+            <button class="footer-button">Prenumerera</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

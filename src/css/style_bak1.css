@@ -1,0 +1,83 @@
+/* "*" gör att sidor laddar söligare */
+/* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    height: 140px;
+    background: #fcebe4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: #f1a2a7;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin: 10px 30px 10px 30px;
+    border-radius: 5px;
+    transition: transform 0.2s ease-out;
+    /* animation: sizeShow 0.5s ease-in-out 1; */
+}
+
+/* @keyframes sizeShow {
+    0%, 100% {
+        scale: 1;
+    }
+    50% {
+        scale: 0.9;
+    }
+} */
+
+.menu-button span {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 8px;
+    background: #f30044;
+    margin: 3px;
+    border-radius: 2px;
+}
+
+.menu-container {
+    display: block;
+}
+
+.logo-container img {
+    height: 120px;
+    margin-top: 10px;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+.open {
+    transform: rotate(-90deg) scale(0.9); /* Vrid knappen när menyn är öppen */
+    background: #f1a2a7b0;
+}
